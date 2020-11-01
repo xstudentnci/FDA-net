@@ -1,11 +1,20 @@
 # CA-1
 
 ## Developers
-### Download project
-Requirements
+### Requirements
+* Have installed Notepad++ from https://notepad-plus-plus.org/downloads/
 * Have installed Visual Studio 2019 Community from https://visualstudio.microsoft.com/vs/community/
 * Have installed Git Bash from https://git-scm.com/downloads
 
+### Git configuration
+#### Set Notepad++ as default editor instead of vi.
+git config --global core.editor "'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
+#### Commit as it is without end lines conversion.
+git config --global core.autocrlf false  => https://stackoverflow.com/questions/1967370/git-replacing-lf-with-crlf
+#### Set Visual Studio as mergetool.
+Follow next link for that: https://dzone.com/articles/how-to-configure-visual-studio-as-diff-and-merge-t
+
+### Download project
 1. Create a development folder where the repository will be downloaded, i.e: c:\dev
 2. cd c:\dev
 3. Clone the git repository with: git clone https://github.com/xstudentnci/FDA-net.git
