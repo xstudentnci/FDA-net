@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Products"; 
+}
+
+<div class="text-center">
+    <h1 class="display-4">Products</h1>
+    <button type="button" onclick="AjaxGet('Products/DoSomething')">Execute ajaxGet (controller)</button>
+    <div style="margin-top:15px">
+        result2: <output id="result2"></output>
+    </div>
+
+    <h1>Products</h1>
+    <div id="tableOuput">
+    </div>
+
+</div>
+
+
+@section Scripts {
+    <script>
+        "use strict";
+
+        window.onload = function () {
+            LoadTable();
+        };
+
+        function LoadTable() {
+            console.log("from document.onload");
+            var oReq = new XMLHttpRequest();
+            oReq.onload = function (e) {
+                console.log("from document.onloadt onload");
+
+                document.getElementById("tableOuput").innerHTML = this.responseText;
+            };
+            oReq.open("get", "Products/GetTable");
+            oReq.send();
+        }     
+
+        function AjaxGet(url) {
+            console.log("from AjaxGet");
+            var oReq = new XMLHttpRequest();
+            oReq.onload = function (e) {
+                console.log("from AjaxGet onload");
+                document.getElementById("result2").innerHTML = 'Result: ' + this.responseText;
+            };
+            oReq.open("get", url);
+            oReq.send();
+        }
+    </script>
+}

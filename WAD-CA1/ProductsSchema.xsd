@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<!-- definition of simple elements -->
+	<xs:element name="category" type="xs:string"/>
+	<xs:element name="name" type="xs:string"/>
+	<xs:element name="description" type="xs:string"/>
+	<xs:element name="quantity">
+		<xs:simpleType>
+			<xs:restriction base="xs:integer">
+				<xs:minInclusive value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="unitprice">
+		<xs:simpleType >
+			<xs:restriction base="xs:decimal">
+				<xs:minInclusive value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+	<xs:attribute name="code">
+		<xs:simpleType>
+			<xs:restriction base="xs:token">
+				<xs:pattern value="[0-9][0-9][0-9]-[0-9][0-9]"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:attribute>
+	
+	<!-- definition of attributes -->
+	<!--<xs:attribute ref="xs:code" use="required"/>-->
+	
+	<!-- definition of complex elements -->
+	<xs:element name="product">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="category"/>
+				<xs:element ref="name"/>
+				<xs:element ref="description"/>
+				<xs:element ref="quantity"/>
+				<xs:element ref="unitprice"/>
+			</xs:sequence>
+			<xs:attribute ref="code" use="required"/>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="products">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="product" minOccurs="10" maxOccurs="unbounded"/>				
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

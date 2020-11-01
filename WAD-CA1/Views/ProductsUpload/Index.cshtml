@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Products Upload"; 
+}
+
+<div class="text-center">
+    <h1 class="display-4">Products Upload</h1>
+
+    <form sp-controller="ProductsUpload" asp-action="UploadFile" onsubmit="AJAXSubmit(this);return false;" method="post"
+          enctype="multipart/form-data">
+        <input type="file" name="file" />
+        <button type="submit">Upload File</button>
+        <div style="margin-top:15px">
+            <output name="result"></output>
+        </div>
+    </form>
+</div>
+
+
+@section Scripts {
+    <script>
+        "use strict";      
+      
+
+        function AJAXSubmit(oFormElement) {
+            console.log("from AJAXSubmit");
+            var oReq = new XMLHttpRequest();
+            oReq.onload = function (e) {
+                console.log("from onload");
+                oFormElement.elements.namedItem("result").value =
+                    'Result: ' + this.status + ' ' + this.statusText;
+            };
+            oReq.open("post", oFormElement.action);
+            oReq.send(new FormData(oFormElement));
+        }
+
+    </script>
+}
