@@ -31,7 +31,7 @@ namespace WAD_CA1.Controllers
 
         private static string ApplyXSLTransformation()
         {
-            using var myXmlFile = System.IO.File.Open("Products.xml", FileMode.Open);
+            using var myXmlFile = System.IO.File.Open("Products.xml", FileMode.Open, FileAccess.Read, FileShare.Read);
             XPathDocument myXPathDoc = new XPathDocument(myXmlFile);
             XslTransform myXslTrans = new XslTransform();
             using var styleSheetFile = System.IO.File.Open("ProductsTransformation.xsl", FileMode.Open);
@@ -43,6 +43,10 @@ namespace WAD_CA1.Controllers
             using var xmlWriter = new XmlTextWriter(new StringWriter(resultString));
 
             myXslTrans.Transform(myXPathDoc, null, xmlWriter);
+
+            //For testing concurrency
+            //System.Threading.Thread.Sleep(15000);
+
             return resultString.ToString();
             //using var reader = new StreamReader(stream);
             //return reader.ReadToEnd();
