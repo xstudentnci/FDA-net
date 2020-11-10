@@ -7,11 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="GreatesChessPlayers.xml" />
     <None Remove="Products.xml" />
     <None Remove="ProductsSchema.xsd" />
     <None Remove="ProductsTransformation.xsl" />
-    <None Remove="Rule.xsl" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,11 +34,6 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\lib\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="GreatesChessPlayers.xml" />
-    <Resource Include="Rule.xsl" />
   </ItemGroup>
 
 </Project>
