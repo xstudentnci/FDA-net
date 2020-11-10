@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="ProductsTransformation.xsl" ?>
+<products xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation='productsSchema.xsd'>
+	
+	<product code="888-01A">
+		<category>CategoryA</category>
+		<name>Product A</name>
+		<description>Description A</description>
+		<quantity>50</quantity>
+		<unitprice>10.50</unitprice>
+	</product>
+	<product code="888A-02">
+		<category>CategoryA</category>
+		<name>Product B</name>
+		<description>Description B</description>
+		<quantity>5</quantity>
+		<unitprice>5.0</unitprice>
+	</product>
+	<product code="888-02">
+		<category>CategoryB</category>
+		<name>Product C</name>
+		<description>Description C</description>
+		<quantity>abc</quantity>
+		<unitprice>7</unitprice>
+	</product>
+
+	<product code="888-03">
+		<category>CategoryC</category>
+		<name>Product D</name>
+		<description>Description D</description>
+		<quantity>50</quantity>
+		<unitprice>abc</unitprice>
+	</product>
+	<product code="888-04">
+		<category>CategoryA</category>
+		<name>Product E</name>
+		<description>Description E</description>
+		<quantity>5</quantity>
+		<unitprice>5.0</unitprice>
+	</product>
+	<product code="888-05">
+		<category>CategoryB</category>
+		<name>Product F</name>
+		<description>Description F</description>
+		<quantity>100</quantity>
+		<unitprice>7</unitprice>
+	</product>
+
+	<product code="888-06">
+		<category>CategoryC</category>
+		<name>Product D</name>
+		<description>Description D</description>
+		<quantity>50</quantity>
+		<unitprice>10.50</unitprice>
+	</product>
+	<product code="888-07">
+		<category>CategoryA</category>
+		<name>Product E</name>
+		<description>Description E</description>
+		<quantity>5</quantity>
+		<unitprice>5.0</unitprice>
+	</product>
+	<product code="888-08">
+		<category>CategoryB</category>
+		<name>Product F</name>
+		<description>Description F</description>
+		<quantity>100</quantity>
+		<unitprice>7</unitprice>
+	</product>
+
+	<product code="888-09">
+		<category>CategoryB</category>
+		<name>Product F</name>
+		<description>Description F</description>
+		<quantity>100</quantity>
+		<unitprice>7</unitprice>
+	</product>
+
+	<product code="888-10">
+		<category>CategoryB</category>
+		<name>Product F</name>
+		<description>Description F</description>
+		<quantity>100</quantity>
+		<unitprice>7</unitprice>
+	</product>
+</products>

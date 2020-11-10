@@ -36,7 +36,7 @@ function Search() {
         var foundInRow = false;
         for (j = 0; j < cells.length; j++) {
             var cellValue = cells[j].textContent || row.innerText;
-            debugger;
+        
             if (cellValue) {
                 txtValue = cellValue;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {

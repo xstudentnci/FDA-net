@@ -6,10 +6,11 @@
     <script src="~/js/productsUpload.js" asp-append-version="true"></script>
 }
 
-<div class="text-center">
-    <h1 class="display-4">Products Upload</h1>
+<h1>Products Upload</h1>
 
-    <form sp-controller="ProductsUpload" asp-action="UploadFile" onsubmit="AJAXSubmit(this);return false;" method="post"
+<div class="text-center">
+    <br />
+    <form class="form-inline my-2 my-lg-0" sp-controller="ProductsUpload" asp-action="UploadFile" onsubmit="AJAXSubmit(this);return false;" method="post"
           enctype="multipart/form-data">
         <input type="file" name="file" />
         <button type="submit">Upload File</button>
@@ -21,7 +22,7 @@
         </div>
         <div id="successMessageDiv" class="alert alert-success alert-dismissible fade show" role="alert" hidden>
         </div>
-        <div id="errorTable" class="table-responsive">
+        <div id="errorTableDiv" class="table-responsive">
         </div>
     </div>
 </div>

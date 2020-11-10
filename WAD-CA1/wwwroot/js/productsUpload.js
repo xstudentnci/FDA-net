@@ -22,11 +22,7 @@ function AJAXSubmit(oFormElement) {
             if (Array.isArray(data) && data.length > 0) {
 
                 mediator.showErrorMessage("Not able to upload products, please fix below errors:");
-
-                var tableBuilder = new TableBuilder();
-                var table = tableBuilder.build(data, ["Id", "Error  message"]);
-
-                document.getElementById("errorTable").append(table);
+                mediator.renderTable(data);
             }
         }
         else {
@@ -40,7 +36,8 @@ function AJAXSubmit(oFormElement) {
 
 class UIMediator {
     constructor() {
-        this.resultMessage = new ResultMessage();        
+        this.resultMessage = new ResultMessage();
+        this.errorTableDiv = document.getElementById("errorTableDiv");
     }
 
     showSuccessMessage(message) {
@@ -57,7 +54,7 @@ class UIMediator {
         var tableBuilder = new TableBuilder();
         var table = tableBuilder.build(data, ["Id", "Error  message"]);
 
-        this.errorTable.append(table);
+        this.errorTableDiv.append(table);
     }
 
     hideAll() {
@@ -104,8 +101,8 @@ class TableBuilder {
         table.setAttribute("class", "table table-striped table-bordered table-condensed");
         this.buildHeader(table, columnNames);
 
-        for (var i = 1; i <= data.length; i++) {
-            this.buildRow(table, i, data[i]);
+        for (var i = 0; i <= data.length; i++) {
+            this.buildRow(table, i +1, data[i]);
         }
 
         return table;
@@ -133,7 +130,7 @@ class TableBuilder {
         if (value == undefined) return table;
 
         var tr = document.createElement("tr");
-
+        tr.setAttribute("class", "text-left");
         if (id % 2 != 0) {
             tr.setAttribute("style", "background-color:rgba(0, 0, 0, 0.05)");
         }
