@@ -1,50 +1,25 @@
 ﻿@{
-    ViewData["Title"] = "Products"; 
+    ViewData["Title"] = "Products";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Products</h1>
-    <button type="button" onclick="AjaxGet('Products/DoSomething')">Execute ajaxGet (controller)</button>
-    <div style="margin-top:15px">
-        result2: <output id="result2"></output>
-    </div>
+<h1>@ViewData["Title"]</h1>
 
-    <h1>Products</h1>
+<div class="text-center">
+    <br />
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" id="searchField" onkeyup="Search()" type="search" placeholder="Search" aria-label="Search">
+    </form>
+    
+    <br />
+    <br />
+    <br />
+    <label>@ViewData["Title"] Table: </label>
     <div id="tableOuput">
     </div>
 
 </div>
 
-
-@section Scripts {
-    <script>
-        "use strict";
-
-        window.onload = function () {
-            LoadTable();
-        };
-
-        function LoadTable() {
-            console.log("from document.onload");
-            var oReq = new XMLHttpRequest();
-            oReq.onload = function (e) {
-                console.log("from document.onloadt onload");
-
-                document.getElementById("tableOuput").innerHTML = this.responseText;
-            };
-            oReq.open("get", "Products/GetTable");
-            oReq.send();
-        }     
-
-        function AjaxGet(url) {
-            console.log("from AjaxGet");
-            var oReq = new XMLHttpRequest();
-            oReq.onload = function (e) {
-                console.log("from AjaxGet onload");
-                document.getElementById("result2").innerHTML = 'Result: ' + this.responseText;
-            };
-            oReq.open("get", url);
-            oReq.send();
-        }
-    </script>
-}
+@*Scripts*@
+<script type="text/javascript" src="~/lib/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="~/js/products.js"></script>
