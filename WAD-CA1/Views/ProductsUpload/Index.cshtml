@@ -1,5 +1,9 @@
 ﻿@{
-    ViewData["Title"] = "Products Upload"; 
+    ViewData["Title"] = "Products Upload";
+}
+
+@section Scripts {
+    <script src="~/js/productsUpload.js" asp-append-version="true"></script>
 }
 
 <div class="text-center">
@@ -9,29 +13,16 @@
           enctype="multipart/form-data">
         <input type="file" name="file" />
         <button type="submit">Upload File</button>
-        <div style="margin-top:15px">
-            <output name="result"></output>
-        </div>
     </form>
+    <br />
+
+    <div id="errorResult">
+        <div id="errorMessageDiv" class="alert alert-danger alert-dismissible fade show" role="alert" hidden>
+        </div>
+        <div id="successMessageDiv" class="alert alert-success alert-dismissible fade show" role="alert" hidden>
+        </div>
+        <div id="errorTable" class="table-responsive">
+        </div>
+    </div>
 </div>
 
-
-@section Scripts {
-    <script>
-        "use strict";      
-      
-
-        function AJAXSubmit(oFormElement) {
-            console.log("from AJAXSubmit");
-            var oReq = new XMLHttpRequest();
-            oReq.onload = function (e) {
-                console.log("from onload");
-                oFormElement.elements.namedItem("result").value =
-                    'Result: ' + this.status + ' ' + this.statusText;
-            };
-            oReq.open("post", oFormElement.action);
-            oReq.send(new FormData(oFormElement));
-        }
-
-    </script>
-}
