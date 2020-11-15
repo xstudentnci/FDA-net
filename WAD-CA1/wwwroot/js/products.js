@@ -3,25 +3,11 @@
 };
 
 function LoadTable() {
-    console.log("from document.onload");
     var oReq = new XMLHttpRequest();
     oReq.onload = function (e) {
-        console.log("from document.onloadt onload");
-
         document.getElementById("tableOuput").innerHTML = this.responseText;
     };
     oReq.open("get", "Products/GetTable");
-    oReq.send();
-}
-
-function AjaxGet(url) {
-    console.log("from AjaxGet");
-    var oReq = new XMLHttpRequest();
-    oReq.onload = function (e) {
-        console.log("from AjaxGet onload");
-        document.getElementById("result2").innerHTML = 'Result: ' + this.responseText;
-    };
-    oReq.open("get", url);
     oReq.send();
 }
 

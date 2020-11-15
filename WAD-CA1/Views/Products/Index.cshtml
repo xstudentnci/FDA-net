@@ -5,20 +5,17 @@
 <h1>@ViewData["Title"]</h1>
 
 <div class="text-center">
+
     <br />
     <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" id="searchField" onkeyup="Search()" type="search" placeholder="Search" aria-label="Search">
     </form>
 
     <br />
-    <br />
-    <br />
-    <label>@ViewData["Title"] Table: </label>
     <div id="tableOuput">
     </div>
-
 </div>
 
-@section Scripts {  
+@section Scripts {
     <script type="text/javascript" src="~/js/products.js"></script>
 }

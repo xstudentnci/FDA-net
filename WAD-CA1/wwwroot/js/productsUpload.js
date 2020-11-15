@@ -1,13 +1,23 @@
 ﻿"use strict";
 
+var mediator;
+
 window.onload = function () {
-    //TODO: have a live instance
-    new UIMediator().hideAll();
+    mediator = new UIMediator();
+    Object.freeze(mediator);
+
+    mediator.hideAll();
+   
+    document.getElementById("customFile").onchange = function () {
+        var inputFile = document.getElementById("customFile");
+        var fileName = inputFile.value.split("\\").pop();
+        var label = document.getElementById("customFileLabel");
+        label.classList.add("selected");
+        label.innerHTML = fileName;
+    };
 };
 
 function AJAXSubmit(oFormElement) {
-
-    var mediator = new UIMediator();
     mediator.hideAll();
 
     var oReq = new XMLHttpRequest();
@@ -60,11 +70,11 @@ class UIMediator {
     hideAll() {
         this.resultMessage.hideAll();
 
-        var errorTable = document.getElementById("tableErrors");      
+        var errorTable = document.getElementById("tableErrors");
 
         if (errorTable != undefined) {
             var parent = errorTable.parentElement;
-            parent.removeChild(errorTable);           
+            parent.removeChild(errorTable);
         }
     }
 }
@@ -85,7 +95,7 @@ class ResultMessage {
         this.errorMessageDiv.textContent = message;
     }
 
-    hideAll() {    
+    hideAll() {
         this.successMessageDiv.setAttribute("hidden", "true");
         this.errorMessageDiv.setAttribute("hidden", "true");
     }
@@ -102,7 +112,7 @@ class TableBuilder {
         this.buildHeader(table, columnNames);
 
         for (var i = 0; i <= data.length; i++) {
-            this.buildRow(table, i +1, data[i]);
+            this.buildRow(table, i + 1, data[i]);
         }
 
         return table;
