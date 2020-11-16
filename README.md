@@ -23,14 +23,14 @@
 
 #### Search page using JavaScript
 * ##### UI
-https://github.com/xstudentnci/FDA-net/blob/main/WAD-CA1/Views/Products/Index.cshtml
-https://github.com/xstudentnci/FDA-net/blob/main/WAD-CA1/wwwroot/js/products.js
+  - https://github.com/xstudentnci/FDA-net/blob/main/WAD-CA1/Views/Products/Index.cshtml
+  - https://github.com/xstudentnci/FDA-net/blob/main/WAD-CA1/wwwroot/js/products.js
 * ##### Backend
-https://github.com/xstudentnci/FDA-net/blob/main/WAD-CA1/Controllers/ProductsController.cs
+  - https://github.com/xstudentnci/FDA-net/blob/main/WAD-CA1/Controllers/ProductsController.cs
 
 #### Products upload
 * ##### UI
-https://github.com/xstudentnci/FDA-net/blob/main/WAD-CA1/Views/ProductsUpload/Index.cshtml
-https://github.com/xstudentnci/FDA-net/blob/main/WAD-CA1/wwwroot/js/productsUpload.js
+  - https://github.com/xstudentnci/FDA-net/blob/main/WAD-CA1/Views/ProductsUpload/Index.cshtml
+  - https://github.com/xstudentnci/FDA-net/blob/main/WAD-CA1/wwwroot/js/productsUpload.js
 * ##### Backend
-https://github.com/xstudentnci/FDA-net/blob/main/WAD-CA1/Controllers/ProductsUpload.cs
+  - https://github.com/xstudentnci/FDA-net/blob/main/WAD-CA1/Controllers/ProductsUpload.cs
