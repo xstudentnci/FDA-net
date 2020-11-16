@@ -8,6 +8,8 @@
 ##### XML definition: https://github.com/xstudentnci/FDA-net/blob/main/WAD-CA1/Products.xml
 ##### XML schema: https://github.com/xstudentnci/FDA-net/blob/main/WAD-CA1/ProductsSchema.xsd
 ##### XSLT to convert XML into HTML page in a table format: https://github.com/xstudentnci/FDA-net/blob/main/WAD-CA1/ProductsTransformation.xsl
+##### XML valid examples (without structure errors): https://github.com/xstudentnci/FDA-net/tree/main/XmlFiles/Valid
+##### XML examples with errors: https://github.com/xstudentnci/FDA-net/tree/main/XmlFiles/WithErrors
 
 #### Institutional pages
 ##### About: https://github.com/xstudentnci/FDA-net/blob/main/WAD-CA1/Views/Home/About.cshtml
