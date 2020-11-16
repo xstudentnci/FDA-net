@@ -1,6 +1,6 @@
 # CA-1
-##### How to download and run the project: https://github.com/xstudentnci/FDA-net/tree/main/docs/general
-##### Developers section: https://github.com/xstudentnci/FDA-net/tree/main/docs/developers
+* ##### How to download and run the project: https://github.com/xstudentnci/FDA-net/tree/main/docs/general
+* ##### Developers section: https://github.com/xstudentnci/FDA-net/tree/main/docs/developers
 
 ### Project index 
 
