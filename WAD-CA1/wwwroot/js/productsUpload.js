@@ -7,7 +7,7 @@ window.onload = function () {
     Object.freeze(mediator);
 
     mediator.hideAll();
-   
+
     document.getElementById("customFile").onchange = function () {
         var inputFile = document.getElementById("customFile");
         var fileName = inputFile.value.split("\\").pop();
@@ -19,20 +19,27 @@ window.onload = function () {
 
 function AJAXSubmit(oFormElement) {
     mediator.hideAll();
+    if (!mediator.validateForm()) return;
 
     var oReq = new XMLHttpRequest();
     oReq.onload = function (e) {
 
         if (this.status == 200) {
-            mediator.showSuccessMessage("Products file uploaded successfuly.");          
+            mediator.showSuccessMessage("Products file uploaded successfuly.");
         }
         else if (this.status == 400) {
             var data = JSON.parse(e.target.responseText);
 
-            if (Array.isArray(data) && data.length > 0) {
-
-                mediator.showErrorMessage("Not able to upload products, please fix below errors:");
-                mediator.renderTable(data);
+            if (data.type == "xml-validation-error") {
+                if (Array.isArray(data.errors) && data.errors.length > 0) {
+                    mediator.showErrorMessage("Not able to upload products, please fix below errors:");
+                    mediator.renderTable(data.errors);
+                } else {
+                    mediator.showErrorMessage("Not able to upload products file, please contact IT department");
+                }
+            }
+            else if (data.type == "error") {
+                mediator.showErrorMessage("Not able to upload products file: " + data.message);
             }
         }
         else {
@@ -48,6 +55,7 @@ class UIMediator {
     constructor() {
         this.resultMessage = new ResultMessage();
         this.errorTableDiv = document.getElementById("errorTableDiv");
+        this.inputFile = document.getElementById("customFile");
     }
 
     showSuccessMessage(message) {
@@ -76,6 +84,15 @@ class UIMediator {
             var parent = errorTable.parentElement;
             parent.removeChild(errorTable);
         }
+    }
+
+    validateForm() {
+        if (!this.inputFile.files || this.inputFile.files.length == 0) {
+            this.showErrorMessage("No file selected for uploading, please select a file");
+            return false;
+        }
+
+        return true;
     }
 }
 
