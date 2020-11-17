@@ -14,12 +14,16 @@
   - ##### Examples with errors: https://github.com/xstudentnci/FDA-net/tree/main/XmlFiles/WithErrors
 
 #### Institutional pages
+* ##### Home: https://github.com/xstudentnci/FDA-net/blob/main/WAD-CA1/Views/Home/Index.cshtml
 * ##### About: https://github.com/xstudentnci/FDA-net/blob/main/WAD-CA1/Views/Home/About.cshtml
 * ##### Contact: https://github.com/xstudentnci/FDA-net/blob/main/WAD-CA1/Views/Home/Contact.cshtml
 * ##### Mission: https://github.com/xstudentnci/FDA-net/blob/main/WAD-CA1/Views/Home/Mission.cshtml
 
 #### Navigation menu
 * ##### Main layout: https://github.com/xstudentnci/FDA-net/blob/main/WAD-CA1/Views/Shared/_Layout.cshtml
+
+#### CSS Style
+* ##### https://github.com/xstudentnci/FDA-net/blob/main/WAD-CA1/wwwroot/css/site.css
 
 #### Search page using JavaScript
 * ##### UI
