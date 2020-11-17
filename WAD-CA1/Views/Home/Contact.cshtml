@@ -1,27 +1,54 @@
 ﻿@{
-    ViewData["Title"] = "Contact";
+    ViewData["Title"] = "Contact Us";
 }
-
-
 
 <main role="main" class="container">
     <h1>@ViewData["Title"]</h1>
+    <br />
+    <br />
+    <p class="text-justify">CMS empowers a global network of over 150,000 businesses in 180 countries</p>
+    <br />
     <div class="starter-template">
-        <form>
+        <form class="shadow-lg p-3 mb-5 bg-white rounded">
             <div class="form-group">
-                @*<p>Contact Information</p>*@
-                <label for="exampleFormControlInput1">Phone</label>
-                <label>12111313131</label>
+                <label>Name</label>
+                <input type="text" placeholder="John Smith">
             </div>
             <div class="form-group">
-                <label for="exampleFormControlInput2">Location</label>
-                <label>xxxxxxxxx, xxxxxxxxxxxxxx, xxxxxxxx</label>
+                <label>Email</label>
+                <input type="email" placeholder="wrub7d78i0e@temporary-mail.net">
             </div>
             <div class="form-group">
-                <label for="exampleFormControlInput3">Email address</label>
-                <label>xxxx@xxxxx.com</label>
+                <label>Message</label>
+                <textarea rows="5" placeholder="Your Message"></textarea>
             </div>
-        </form>
+            <button type="button" class="btn btn-secondary">Send</button>
 
+        </form>
+        <br />
+        <h4>Or Reach Us</h4>
+        <div class="container">
+            <div class="row">
+                <strong>Email</strong>
+            </div>
+            <div class="row">
+                <label>contactus@example.com</label>
+            </div>
+            <div class="row">
+                <strong>Phone</strong>
+            </div>
+            <div class="row">
+                <label>+01 012 345 6789</label>
+            </div>
+            <div class="row">
+                <strong>Address</strong>
+            </div>
+            <div class="row">
+                <label>
+                    Sugar Camp Road,<br />Owatonna<br />
+                    Minnesota, <br /> 55060
+                </label>
+            </div>
+        </div>
     </div>
 </main>
