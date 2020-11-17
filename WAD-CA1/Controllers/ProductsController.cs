@@ -10,12 +10,6 @@ namespace WAD_CA1.Controllers
 
     public class ProductsController : Controller
     {
-        [HttpGet]
-        public IActionResult DoSomething()
-        {
-            return Ok("hey");
-        }
-
         public IActionResult Index()
         {
             return View();
@@ -26,7 +20,7 @@ namespace WAD_CA1.Controllers
         {
             var rawHtml = ApplyXSLTransformation();
 
-           return Ok(rawHtml);
+            return Ok(rawHtml);
         }
 
         private static string ApplyXSLTransformation()
@@ -37,19 +31,13 @@ namespace WAD_CA1.Controllers
             using var styleSheetFile = System.IO.File.Open("ProductsTransformation.xsl", FileMode.Open);
             XmlTextReader stylesheetReader = new XmlTextReader(styleSheetFile);
             myXslTrans.Load(stylesheetReader);
-            //XmlTextWriter myWriter = new XmlTextWriter("result.html", null);
 
             StringBuilder resultString = new StringBuilder();
             using var xmlWriter = new XmlTextWriter(new StringWriter(resultString));
 
             myXslTrans.Transform(myXPathDoc, null, xmlWriter);
 
-            //For testing concurrency
-            //System.Threading.Thread.Sleep(15000);
-
             return resultString.ToString();
-            //using var reader = new StreamReader(stream);
-            //return reader.ReadToEnd();
         }
 
     }

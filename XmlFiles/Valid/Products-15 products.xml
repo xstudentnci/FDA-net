@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<products xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation='productsSchema.xsd'>	
+	<product code="888-00">
+		<category>CategoryA</category>
+		<name>Product 00</name>
+		<description>Description 00</description>
+		<quantity>50</quantity>
+		<unitprice>10.50</unitprice>
+	</product>
+	<product code="888-01">
+		<category>CategoryA</category>
+		<name>Product 01</name>
+		<description>Description 01</description>
+		<quantity>5</quantity>
+		<unitprice>5.0</unitprice>
+	</product>
+	<product code="888-02">
+		<category>CategoryB</category>
+		<name>Product 02</name>
+		<description>Description 02</description>
+		<quantity>100</quantity>
+		<unitprice>7</unitprice>
+	</product>
+	<product code="888-03">
+		<category>CategoryC</category>
+		<name>Product 03</name>
+		<description>Description 03</description>
+		<quantity>50</quantity>
+		<unitprice>10.50</unitprice>
+	</product>
+	<product code="888-04">
+		<category>CategoryA</category>
+		<name>Product 04</name>
+		<description>Description 04</description>
+		<quantity>5</quantity>
+		<unitprice>5.0</unitprice>
+	</product>
+	<product code="888-05">
+		<category>CategoryB</category>
+		<name>Product 05</name>
+		<description>Description 05</description>
+		<quantity>100</quantity>
+		<unitprice>7</unitprice>
+	</product>
+	<product code="888-06">
+		<category>CategoryC</category>
+		<name>Product 06</name>
+		<description>Description 06</description>
+		<quantity>50</quantity>
+		<unitprice>10.50</unitprice>
+	</product>
+	<product code="888-07">
+		<category>CategoryA</category>
+		<name>Product 07</name>
+		<description>Description 07</description>
+		<quantity>5</quantity>
+		<unitprice>5.0</unitprice>
+	</product>
+	<product code="888-08">
+		<category>CategoryB</category>
+		<name>Product 08</name>
+		<description>Description 08</description>
+		<quantity>100</quantity>
+		<unitprice>7</unitprice>
+	</product>
+	<product code="888-09">
+		<category>CategoryB</category>
+		<name>Product 09</name>
+		<description>Description 09</description>
+		<quantity>100</quantity>
+		<unitprice>7</unitprice>
+	</product>	
+	<product code="888-10">
+		<category>CategoryB</category>
+		<name>Product 10</name>
+		<description>Description 10</description>
+		<quantity>100</quantity>
+		<unitprice>7</unitprice>
+	</product>
+	<product code="888-11">
+		<category>CategoryB</category>
+		<name>Product 11</name>
+		<description>Description 11</description>
+		<quantity>100</quantity>
+		<unitprice>7</unitprice>
+	</product>
+	<product code="888-12">
+		<category>CategoryB</category>
+		<name>Product 12</name>
+		<description>Description 12</description>
+		<quantity>100</quantity>
+		<unitprice>7</unitprice>
+	</product>
+	<product code="888-13">
+		<category>CategoryB</category>
+		<name>Product 13"</name>
+		<description>Description 13"</description>
+		<quantity>100</quantity>
+		<unitprice>7</unitprice>
+	</product>
+	<product code="888-14">
+		<category>CategoryB</category>
+		<name>Product 14</name>
+		<description>Description 14</description>
+		<quantity>67</quantity>
+		<unitprice>87</unitprice>
+	</product>
+</products>

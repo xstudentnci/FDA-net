@@ -64,11 +64,4 @@
 		<quantity>100</quantity>
 		<unitprice>7</unitprice>
 	</product>
-	<product code="123-09">
-		<category>CategoryB</category>
-		<name>Product F</name>
-		<description>Description F</description>
-		<quantity>100</quantity>
-		<unitprice>7</unitprice>
-	</product>
 </products>

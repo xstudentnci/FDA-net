@@ -1,28 +1,45 @@
 ﻿"use strict";
 
+var mediator;
+
 window.onload = function () {
-    //TODO: have a live instance
-    new UIMediator().hideAll();
+    mediator = new UIMediator();
+    Object.freeze(mediator);
+
+    mediator.hideAll();
+
+    document.getElementById("customFile").onchange = function () {
+        var inputFile = document.getElementById("customFile");
+        var fileName = inputFile.value.split("\\").pop();
+        var label = document.getElementById("customFileLabel");
+        label.classList.add("selected");
+        label.innerHTML = fileName;
+    };
 };
 
 function AJAXSubmit(oFormElement) {
-
-    var mediator = new UIMediator();
     mediator.hideAll();
+    if (!mediator.validateForm()) return;
 
     var oReq = new XMLHttpRequest();
     oReq.onload = function (e) {
 
         if (this.status == 200) {
-            mediator.showSuccessMessage("Products file uploaded successfuly.");          
+            mediator.showSuccessMessage("Products file uploaded successfuly.");
         }
         else if (this.status == 400) {
             var data = JSON.parse(e.target.responseText);
 
-            if (Array.isArray(data) && data.length > 0) {
-
-                mediator.showErrorMessage("Not able to upload products, please fix below errors:");
-                mediator.renderTable(data);
+            if (data.type == "xml-validation-error") {
+                if (Array.isArray(data.errors) && data.errors.length > 0) {
+                    mediator.showErrorMessage("Not able to upload products, please fix below errors:");
+                    mediator.renderTable(data.errors);
+                } else {
+                    mediator.showErrorMessage("Not able to upload products file, please contact IT department");
+                }
+            }
+            else if (data.type == "error") {
+                mediator.showErrorMessage("Not able to upload products file: " + data.message);
             }
         }
         else {
@@ -38,6 +55,7 @@ class UIMediator {
     constructor() {
         this.resultMessage = new ResultMessage();
         this.errorTableDiv = document.getElementById("errorTableDiv");
+        this.inputFile = document.getElementById("customFile");
     }
 
     showSuccessMessage(message) {
@@ -60,12 +78,21 @@ class UIMediator {
     hideAll() {
         this.resultMessage.hideAll();
 
-        var errorTable = document.getElementById("tableErrors");      
+        var errorTable = document.getElementById("tableErrors");
 
         if (errorTable != undefined) {
             var parent = errorTable.parentElement;
-            parent.removeChild(errorTable);           
+            parent.removeChild(errorTable);
         }
+    }
+
+    validateForm() {
+        if (!this.inputFile.files || this.inputFile.files.length == 0) {
+            this.showErrorMessage("No file selected for uploading, please select a file");
+            return false;
+        }
+
+        return true;
     }
 }
 
@@ -85,7 +112,7 @@ class ResultMessage {
         this.errorMessageDiv.textContent = message;
     }
 
-    hideAll() {    
+    hideAll() {
         this.successMessageDiv.setAttribute("hidden", "true");
         this.errorMessageDiv.setAttribute("hidden", "true");
     }
@@ -102,7 +129,7 @@ class TableBuilder {
         this.buildHeader(table, columnNames);
 
         for (var i = 0; i <= data.length; i++) {
-            this.buildRow(table, i +1, data[i]);
+            this.buildRow(table, i + 1, data[i]);
         }
 
         return table;

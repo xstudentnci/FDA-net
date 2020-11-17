@@ -18,22 +18,22 @@ namespace WAD_CA1.Controllers
         }
 
         [HttpPost("UploadFile")]
-        public async Task<IActionResult> UploadFile()
-        {   
-            //TODO: Make this async when code is stable
-            
+        public IActionResult UploadFile()
+        {
             try
             {
-                if (HttpContext.Request.Form.Files[0] == null)
+                if (HttpContext.Request.Form.Files == null ||
+                    !HttpContext.Request.Form.Files.Any() ||
+                    HttpContext.Request.Form.Files[0] == null)
                 {
-                    return Ok("No file selected for upload.");
+                    return BadRequest(new { type="error", message="No file selected for upload" });
                 }
 
                 var file = HttpContext.Request.Form.Files[0];
                 using var formFileStream = file.OpenReadStream();
-                var errors = this.ValidateXML(formFileStream);
+                var errorsDetected = this.ValidateXML(formFileStream);
 
-                if (!errors.Any())
+                if (!errorsDetected.Any())
                 {
                     //I am going for a replace approach rather than append new products, in this way we don't need CRUD operations in xml which is out of scope.
                     using var productFileStream = System.IO.File.Open("Products.xml", FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
@@ -45,15 +45,14 @@ namespace WAD_CA1.Controllers
                 }
                 else
                 {
-                    return BadRequest(errors);
+                    return BadRequest(new { type = "xml-validation-error", errors= errorsDetected });
                 }
 
                 return Ok("All good");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                //Just for debugging purpose at the moment
-                throw;
+                return BadRequest(new { type = "error", message = "Internal error" });
             }
         }
 
@@ -73,25 +72,18 @@ namespace WAD_CA1.Controllers
 
         static void ValidationEventHandler(object sender, ValidationEventArgs e, List<string> errors)
         {
-            XmlSeverityType type = XmlSeverityType.Warning;
-            if (Enum.TryParse<XmlSeverityType>("Error", out type))
-            {
-                if (type == XmlSeverityType.Error)
-                {
-                    //throw new Exception(e.Message);
-                    var errorMessage = $"Error: {e.Severity}, {e.Message}";
+            var errorMessage = $"{e.Severity}, {e.Message}";
 
-                    errors.Add(errorMessage);
-                    Console.WriteLine(errorMessage);
-                }
-                if (type == XmlSeverityType.Warning)
-                {
-                    //throw new Exception(e.Message);
-                    Console.WriteLine($"Warning: {e.Severity}, {e.Message}");
-                }
+            switch (e.Severity)
+            {
+                case XmlSeverityType.Error:
+                    {                       
+                        errors.Add(errorMessage);
+                        Console.WriteLine(errorMessage);
+                    };break;
+                case XmlSeverityType.Warning: // I am not returning warnings as this is out of scope
+                default: Console.WriteLine(errorMessage); break;
             }
         }
-
-
     }
 }

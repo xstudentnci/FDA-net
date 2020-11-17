@@ -1,11 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <products xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation='productsSchema.xsd'>	
 	<product code="123-00">
 		<category>CategoryA</category>
 		<name>Product A</name>
 		<description>Description A</description>
-		<quantity>50</quantity>
+		<quantity>abc</quantity>
 		<unitprice>10.50</unitprice>
 	</product>
 	<product code="123-01">
@@ -26,7 +26,7 @@
 		<category>CategoryC</category>
 		<name>Product D</name>
 		<description>Description D</description>
-		<quantity>50</quantity>
+		<quantity>abc</quantity>
 		<unitprice>10.50</unitprice>
 	</product>
 	<product code="123-04">
@@ -61,7 +61,7 @@
 		<category>CategoryB</category>
 		<name>Product F</name>
 		<description>Description F</description>
-		<quantity>100</quantity>
+		<quantity>-1</quantity>
 		<unitprice>7</unitprice>
 	</product>
 	<product code="123-09">
